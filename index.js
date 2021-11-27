@@ -9,6 +9,10 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+app.get('/', (req, res) => {
+    res.send("App is running")
+} )
+
 app.post("/suggestions", (req, res) => {
     const query = JSON.stringify(req.body)
     YTSuggest(query).then( x => {
