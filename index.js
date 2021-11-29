@@ -24,7 +24,7 @@ app.post("/suggestions", (req, res) => {
 app.post("/search", (req, res) => {
     const { query } = req.body
 
-    YouTube.search( query , { limit: 20 } )
+    YouTube.search( query , { limit: 21 } )
     .then( i => {
         let result = i.map( (i) => {
             return {
@@ -32,7 +32,7 @@ app.post("/search", (req, res) => {
                 title: i.title,
                 url: i.url,
                 img: i.thumbnail.url,
-                duration: i.duration_formatted,
+                duration: i.['duration_formatted'],
                 durationNum: i.duration,
                 channelName: i.channel.name,
                 channelIcon: i.channel.icon,
