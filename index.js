@@ -32,7 +32,7 @@ app.post("/search", (req, res) => {
                 title: i.title,
                 url: i.url,
                 img: i.thumbnail.url,
-                duration: i.duration,
+                duration: i.duration_formatted,
                 channelName: i.channel.name,
                 channelIcon: i.channel.icon,
                 uploaded: i.uploadedAt,
