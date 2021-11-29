@@ -25,8 +25,17 @@ app.post("/search", (req, res) => {
     const { query } = req.body
 
     YouTube.search( query , { limit: 20 } )
-    .then( x => {
-        return res.json({ success: true, result: x });
+    .then( i => {
+        return res.json({ success: true, result: [{
+            id: i.id, // yt id
+            title: i.title,
+            url: i.url,
+            duration: i.duration,
+            channelName: i.channel.name,
+            channelIcon: i.channel.icon,
+            uploaded: i.uploadedAt,
+            views: Intl.NumberFormat('en', { notation: 'compact' }).format(i.views)
+        }] });
     })
     .catch( err => {
         return res.status(404).json({ success: false, err: err })
