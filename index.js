@@ -31,6 +31,7 @@ app.post("/search", (req, res) => {
                 id: i.id, // yt id
                 title: i.title,
                 url: i.url,
+                img: i.thumbnail.url,
                 duration: i.duration,
                 channelName: i.channel.name,
                 channelIcon: i.channel.icon,
