@@ -24,7 +24,7 @@ app.post("/suggestions", (req, res) => {
 app.post("/search", (req, res) => {
     const { query } = req.body
 
-    YouTube.search( query , { limit: 20, safeSearch: true } )
+    YouTube.search( query , { limit: 21, safeSearch: false } )
     .then( i => {
         let result = i.map( (i) => {
             return {
